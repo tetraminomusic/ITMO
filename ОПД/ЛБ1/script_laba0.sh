@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ~
-chmod -R 777 lab0
+chmod -R ugo+rwx lab0
 rm -rf lab0
 
 #252537 - номер варианта
@@ -14,6 +14,8 @@ rm -rf lab0
 mkdir lab0
 cd lab0
 
+# -p или --parents - создать все директории, которые указаны внутри пути.
+# Если какая-либо директория существует, то предупреждение об этом не выводится.
 mkdir -p happiny5/staraptor/hariyama
 mkdir -p happiny5/poliwrath/weepinbell
 mkdir -p happiny5/seel/samurott
@@ -33,6 +35,8 @@ mkdir -p roselia7/rampardos/leavanny
 
 
 
+# touch — команда Unix, предназначенная для установки времени последнего изменения файла или доступа в текущее время.
+# Также используется для создания пустых файлов.
 touch happiny5/caterpie
 touch happiny5/staraptor/cacnea
 touch happiny5/staraptor/cubone
@@ -58,9 +62,12 @@ touch roselia7/salamence
 touch roselia7/swoobat
 touch zigzagoon3
 
+### можно использовать ">happiny5/caterpie"
+
+
 ###########
 
-echo "Живет Forest" > happiny5/caterpie
+echo "Живет Forest" > happiny5/caterpie         
 
 echo "Ходы Block Body Slam Bullet Seed Dark
 Pulse Double-Edge Drain Punch Fury Cutter Focus Punch Giga Drain Low
@@ -192,9 +199,43 @@ chmod u=rw,g=rw,o=r roselia7
 
 ##############################################################################################################
 
-chmod 777 zigzagoon3
-chmod 777 roselia7
-chmod 777 roselia7/mightyena
+# mv vs cp
+# mv
+# Когда мы перемещаем файл, inode удаляется из существующего каталога и сопоставляется с новым каталогом.
+# Номер inode файла не меняется. За исключением нескольких случаев, которые мы обсудим позже.
+# cp
+# Когда мы копируем файл, создается новый файл, и содержимое будет скопировано в файл.
+# Таким образом, существующий файл будет иметь тот же номер inode, новый файл будет иметь другой номер inode.
+# Переименование файла, которое не выходит за границы файловой системы, — это просто изменение метаданных, поэтому оно должно сохранять номер inode
+
+# inode - это структура данных, в которой хранятся метаданные файла и перечислены блоки с данными файла.
+# Файловые системы Ext используют блоки для хранения данных.
+# В начале раздела расположен суперблок, в котором находятся метаданные всей файловой системы, а ним идут несколько зарезервированных блоков,
+# а затем размещена таблица inode и только после неё блоки с данными.
+# Все Inode размещены в начале раздела диска.
+
+# Любой файл в каталоге имеет имя файла и номер inode.
+# Пользователь может узнать метаданные этого файла, указав его номер inode.
+
+# Каждый Inode хранит следующие атрибуты:
+# размер, владелец, дата/время, разрешения, расположение на диске, тип файла, количество ссылок, дополнительные метаданные о файле.
+# Директории - это тоже inode типа директория, в которых вместо содержимого файла содержится список имён файлов и номера их Ino
+
+# Жесткие ссылки предназначены только для файлов;
+# вы не можете ссылаться на файл в другом разделе с другим номером индекса.
+# Если реальная копия удалена, ссылка будет работать, потому что она обращается к базовым данным, к которым обращалась реальная копия.
+
+# Символические ссылки vs жёсткие
+# Эти ссылки ведут себя по-разному, когда источник ссылки (то, на что делается ссылка) перемещается или удаляется.
+# Символические ссылки не обновляются (они просто содержат строку, которая является путем к своей цели);
+# жесткие ссылки всегда относятся к источнику, даже если он перемещен или удален.
+# Кроме того, жесткая ссылка не требует дополнительного места, но изменения, примененные к жесткой ссылке,
+# отражаются в исходном файле. С другой стороны, программная ссылка требует дополнительного места.
+# Мягкие ссылки разрешены для каталогов, в отличие от жестких ссылок.
+
+chmod 700 zigzagoon3
+chmod 700 roselia7
+chmod 700 roselia7/mightyena
 
 ln zigzagoon3 roselia7/mightyena/venusaurzigzagoon
 
@@ -205,10 +246,10 @@ chmod 660 zigzagoon3
 
 #############
 
-chmod 777 kirlia2
-chmod 777 roselia7
-chmod 777 roselia7/klang
-chmod 777 roselia7/klang/infernape
+chmod 700 kirlia2
+chmod 700 roselia7
+chmod 700 roselia7/klang
+chmod 700 roselia7/klang/infernape
 
 cp kirlia2 roselia7/klang/infernape/
 
@@ -220,13 +261,13 @@ chmod u=r,g=,o= kirlia2
 
 #############
 
-chmod 777 roselia7
-chmod 777 nidoranF8
-chmod 777 nidoranF8/persian
-chmod 777 roselia7/mightyena
-chmod 777 nidoranF8/persian/chimchar
-chmod 777 roselia7/mightyena/venusaur
-chmod 777 nidoranF8/lampent
+chmod 700 roselia7
+chmod 700 nidoranF8
+chmod 700 nidoranF8/persian
+chmod 700 roselia7/mightyena
+chmod 700 nidoranF8/persian/chimchar
+chmod 700 roselia7/mightyena/venusaur
+chmod 700 nidoranF8/lampent
 
 
 cat nidoranF8/persian/chimchar roselia7/mightyena/venusaur nidoranF8/lampent > zigzagoon3_19
@@ -241,8 +282,8 @@ chmod u=rw,g=rw,o=r roselia7
 
 #############
 
-chmod -R 777 happiny5
-chmod -R 777 roselia7
+chmod -R 700 happiny5
+chmod -R 700 roselia7
 
 
 cp -R happiny5 roselia7/klang/venusaur/
@@ -287,8 +328,8 @@ chmod u=rw,g=rw,o=r roselia7
 
 #############
 
-chmod -R 777 roselia7
-chmod 777 roselia7/swoobat
+chmod -R 700 roselia7
+chmod 700 roselia7/swoobat
 
 cp -R roselia7 roselia7_copy
 cp -R roselia7_copy roselia7/rampardos/roselia7
@@ -316,7 +357,7 @@ chmod u=rw,g=rw,o=r roselia7
 
 #############
 
-chmod 777 happiny5
+chmod 700 happiny5
 
 ln -s happiny5 Copy_56
 
@@ -324,10 +365,10 @@ chmod u=rw,g=r,o=r happiny5
 
 #############
 
-chmod 777 zigzagoon3
-chmod 777 nidoranF8
-chmod 777 nidoranF8/persian
-chmod 777 nidoranF8/persian/pidgey
+chmod 700 zigzagoon3
+chmod 700 nidoranF8
+chmod 700 nidoranF8/persian
+chmod 700 nidoranF8/persian/pidgey
 
 cp zigzagoon3 nidoranF8/persian/pidgey/
 
@@ -340,9 +381,9 @@ chmod 571 nidoranF8
 
 #############
 
-chmod 777 horsea0
-chmod 777 roselia7
-chmod 777 roselia7/rampardos
+chmod 700 horsea0
+chmod 700 roselia7
+chmod 700 roselia7/rampardos
 
 ln horsea0 roselia7/rampardos/amoongusshorsea
 
@@ -352,9 +393,9 @@ chmod ugo=r horsea0
 
 #############
 
-chmod 777 roselia7
-chmod 777 zigzagoon3
-chmod 777 roselia7/rampardos
+chmod 700 roselia7
+chmod 700 zigzagoon3
+chmod 700 roselia7/rampardos
 
 ln -s zigzagoon3 roselia7/rampardos/roggenrolazigzagoon
 
@@ -364,13 +405,13 @@ chmod u=rw,g=rw,o=r roselia7
 
 #############
 
-chmod 777 happiny5
-chmod 777 roselia7
-chmod 777 happiny5/staraptor
-chmod 777 roselia7/rampardos
-chmod 777 roselia7/rampardos/roggenrola
-chmod 777 happiny5/staraptor/rattata
-chmod 777 roselia7/rampardos/amoonguss
+chmod 700 happiny5
+chmod 700 roselia7
+chmod 700 happiny5/staraptor
+chmod 700 roselia7/rampardos
+chmod 700 roselia7/rampardos/roggenrola
+chmod 700 happiny5/staraptor/rattata
+chmod 700 roselia7/rampardos/amoonguss
 
 cat roselia7/rampardos/roggenrola happiny5/staraptor/rattata roselia7/rampardos/amoonguss > zigzagoon3_13
 
@@ -384,8 +425,8 @@ chmod u=rw,g=r,o=r happiny5
 
 #############
 
-chmod 777 roselia7
-chmod 777 zigzagoon3
+chmod 700 roselia7
+chmod 700 zigzagoon3
 
 cp zigzagoon3 roselia7/ninetaleszigzagoon
 
@@ -396,8 +437,8 @@ chmod 660 zigzagoon3
 
 #############
 
-chmod 777 kirlia2
-chmod 777 happiny5
+chmod 700 kirlia2
+chmod 700 happiny5
 
 ln -s kirlia2 happiny5/caterpiekirlia
 
@@ -406,9 +447,9 @@ chmod u=r,g=,o= kirlia2
 
 #############
 
-chmod 777 roselia7
-chmod 777 zigzagoon3
-chmod 777 roselia7/rampardos
+chmod 700 roselia7
+chmod 700 zigzagoon3
+chmod 700 roselia7/rampardos
 
 cp zigzagoon3 roselia7/rampardos/metangzigzagoon
 
@@ -419,7 +460,7 @@ chmod u=rw,g=rw,o=r roselia7
 
 #############
 
-chmod 777 nidoranF8
+chmod 700 nidoranF8
 
 ln -s nidoranF8 Copy_37
 
@@ -433,57 +474,92 @@ chmod 571 Copy_37
 ##############################################################################################################
 
 cd ..
-chmod -R 777 lab0
+chmod -R 700 lab0
 cd lab0
 
 ##
 
+echo "1"
+
 wc -l nidoranF8/mareep nidoranF8/tangela nidoranF8/lampent 2>&1 | tee /tmp/lines_count
 
 ##
+
+echo "2"
 
 ls roselia7/ | sort -r
 
 
 ##
 
-find -name "v*" -type f 2>/dev/null -exec cat -n {} \; | sort -r
+echo "3"
+
+# find -name "v*" -type f 2>/dev/null -exec cat -n {} \; | sort -r 
+grep -rl "" --include="v*" 2>/dev/null | xargs cat -n | sort -r
 
 ##
+
+echo "4"
 
 cat happiny5/poliwrath/mudkip happiny5/seel/pidgeotto happiny5/seel/golurk happiny5/seel/masquerain nidoranF8/froslass nidoranF8/persian/chimchar nidoranF8/mareep nidoranF8/tangela | sort -r
 
 ##
 
-find -name "*ma*" -type f -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" 2>/dev/null | sort -k1 | tail -2
+echo "5"
+
+#find -name "*ma*" -type f -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" 2>/dev/null | sort -k1 | tail -2
+grep -rl -i "ma" 2>/dev/null | xargs ls -l 2>/dev/null | sort | tail -2 
+
+# -r - рекурсивный поиск по папкам, l - просмотр хотя бы одного вхождения в файле!!
+# xargs - преобразует поток данных в аргументы командной строки
 
 ##
 
-find roselia7 -type f -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" 2>/tmp/error | sort -rk1
+echo "6"
+
+#find roselia7 -type f -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" 2>/tmp/error | sort -rk1
+grep -R -rl "" roselia7/ 2>/tmp/error | xargs ls -ld 2>/tmp/error | sort -r
 
 ##
 
-find -type f -name "*le*" -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" | sort -k1
+echo "7"
+
+#find -type f -name "*le*" -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" | sort -k1
+grep -rl "le" | xargs ls -l | sort | tail -2
 
 ##
 
-find -type f -name "p*" -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" 2>&1 | sort -rk6
+echo "8"
+
+#find -type f -name "p*" -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" 2>&1 | sort -rk6
+grep -rl "" --include="p*" 2>&1 | xargs ls -ld | sort -k6 -r
 
 ##
 
-find -type f -name "*p" -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" | sort -k6 | tail -2
+echo "9"
+
+#find -type f -name "*p" -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" | sort -k6 | tail -2
+grep -rl "" --include="*p" | xargs ls -ld | sort -k6 | tail -2
 
 ##
+
+echo "10"
 
 wc -m horsea0 2>/dev/null | tee /tmp/n_symbols
 
 ##
 
-find -type f -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" | sort -rk5 | tail -2
+echo "11"
+
+# find -type f -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" | sort -rk5 | tail -2
+grep -rl "" | xargs ls -l | sort -k5 -r | tail -2
 
 ##
 
-find -type f -name "*e" -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" | sort -rk5
+echo "12"
+
+#find -type f -name "*e" -printf "%f\t%M\t%u\t%g\t%s\t%Td-%Tm-%TY\t%TH:%TM\n" | sort -rk5
+grep -rl "" --include="*e" | xargs ls -l | sort -k6 -k7 -r
 
 ##
 
@@ -545,14 +621,14 @@ chmod u=rw,g=rw,o=r roselia7
 
 ##############################################################################################################
 
-chmod 777 horsea0
+chmod 700 horsea0
 
 rm horsea0
 
 #############
 
-chmod 777 nidoranF8
-chmod 777 nidoranF8/lampent
+chmod 700 nidoranF8
+chmod 700 nidoranF8/lampent
 
 rm nidoranF8/lampent
 
@@ -560,8 +636,8 @@ chmod 571 nidoranF8
 
 #############
 
-chmod 777 roselia7
-chmod 777 roselia7/rampardos
+chmod 700 roselia7
+chmod 700 roselia7/rampardos
 
 rm roselia7/rampardos/amoongusshorsea
 rm roselia7/rampardos/roggenrolazigzagoon
@@ -572,9 +648,9 @@ chmod u=rw,g=rw,o=r roselia7
 
 #############
 
-chmod 777 roselia7
-chmod 777 roselia7/klang/infernape
-chmod 777 roselia7/klang
+chmod 700 roselia7
+chmod 700 roselia7/klang/infernape
+chmod 700 roselia7/klang
 
 rm -r roselia7/klang/infernape
 
