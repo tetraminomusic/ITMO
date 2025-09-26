@@ -595,7 +595,7 @@ rm horsea0
 
 #############
 
-chmod 700 nidoranF8
+chmod 300 nidoranF8
 chmod 700 nidoranF8/lampent
 
 rm nidoranF8/lampent
@@ -604,7 +604,7 @@ chmod 571 nidoranF8
 
 #############
 
-chmod 700 roselia7
+chmod 300 roselia7
 chmod 700 roselia7/rampardos
 
 rm roselia7/rampardos/amoongusshorsea
@@ -616,9 +616,9 @@ chmod u=rw,g=rw,o=r roselia7
 
 #############
 
-chmod 700 roselia7
+chmod 300 roselia7
 chmod 700 roselia7/klang/infernape
-chmod 700 roselia7/klang
+chmod 300 roselia7/klang
 
 rm -r roselia7/klang/infernape
 
