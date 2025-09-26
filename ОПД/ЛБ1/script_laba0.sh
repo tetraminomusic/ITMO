@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ~
-chmod -R ugo+rwx lab0
+chmod -R 777 lab0
 rm -rf lab0
 
 #252537 - номер варианта
@@ -32,38 +32,6 @@ mkdir -p roselia7/klang/eelektross
 mkdir -p roselia7/klang/venusaur
 mkdir -p roselia7/klang/infernape
 mkdir -p roselia7/rampardos/leavanny
-
-
-
-# touch — команда Unix, предназначенная для установки времени последнего изменения файла или доступа в текущее время.
-# Также используется для создания пустых файлов.
-touch happiny5/caterpie
-touch happiny5/staraptor/cacnea
-touch happiny5/staraptor/cubone
-touch happiny5/staraptor/rattata
-touch happiny5/poliwrath/mudkip
-touch happiny5/seel/pidgeotto
-touch happiny5/seel/golurk
-touch happiny5/seel/masquerain
-touch nidoranF8/froslass
-touch nidoranF8/persian/chimchar
-touch roselia7/mightyena/venusaur
-touch roselia7/rampardos/roggenrola
-touch roselia7/rampardos/amoonguss
-touch roselia7/rampardos/metang
-touch horsea0
-touch kirlia2
-touch nidoranF8/mareep
-touch nidoranF8/tangela
-touch nidoranF8/lampent
-touch nidoranF8/foongus
-touch roselia7/ninetales
-touch roselia7/salamence
-touch roselia7/swoobat
-touch zigzagoon3
-
-### можно использовать ">happiny5/caterpie"
-
 
 ###########
 
@@ -106,7 +74,7 @@ Gluttony" > nidoranF8/persian/chimchar
 echo "Способности Overcharge Static Cute
 Charm" > nidoranF8/mareep
 
-echo "Тип покемона GRASS NONE" > tangela
+echo "Тип покемона GRASS NONE" > nidoranF8/tangela
 
 echo "Живет Cave
 Urban" > nidoranF8/lampent
@@ -234,8 +202,8 @@ chmod u=rw,g=rw,o=r roselia7
 # Мягкие ссылки разрешены для каталогов, в отличие от жестких ссылок.
 
 chmod 700 zigzagoon3
-chmod 700 roselia7
-chmod 700 roselia7/mightyena
+chmod 300 roselia7
+chmod 300 roselia7/mightyena
 
 ln zigzagoon3 roselia7/mightyena/venusaurzigzagoon
 
@@ -247,9 +215,9 @@ chmod 660 zigzagoon3
 #############
 
 chmod 700 kirlia2
-chmod 700 roselia7
-chmod 700 roselia7/klang
-chmod 700 roselia7/klang/infernape
+chmod 300 roselia7
+chmod 300 roselia7/klang
+chmod 300 roselia7/klang/infernape
 
 cp kirlia2 roselia7/klang/infernape/
 
@@ -261,10 +229,10 @@ chmod u=r,g=,o= kirlia2
 
 #############
 
-chmod 700 roselia7
-chmod 700 nidoranF8
-chmod 700 nidoranF8/persian
-chmod 700 roselia7/mightyena
+chmod 300 roselia7
+chmod 300 nidoranF8
+chmod 300 nidoranF8/persian
+chmod 300 roselia7/mightyena
 chmod 700 nidoranF8/persian/chimchar
 chmod 700 roselia7/mightyena/venusaur
 chmod 700 nidoranF8/lampent
@@ -382,8 +350,8 @@ chmod 571 nidoranF8
 #############
 
 chmod 700 horsea0
-chmod 700 roselia7
-chmod 700 roselia7/rampardos
+chmod 300 roselia7
+chmod 300 roselia7/rampardos
 
 ln horsea0 roselia7/rampardos/amoongusshorsea
 
@@ -393,9 +361,9 @@ chmod ugo=r horsea0
 
 #############
 
-chmod 700 roselia7
+chmod 300 roselia7
 chmod 700 zigzagoon3
-chmod 700 roselia7/rampardos
+chmod 300 roselia7/rampardos
 
 ln -s zigzagoon3 roselia7/rampardos/roggenrolazigzagoon
 
@@ -406,9 +374,9 @@ chmod u=rw,g=rw,o=r roselia7
 #############
 
 chmod 700 happiny5
-chmod 700 roselia7
-chmod 700 happiny5/staraptor
-chmod 700 roselia7/rampardos
+chmod 300 roselia7
+chmod 300 happiny5/staraptor
+chmod 300 roselia7/rampardos
 chmod 700 roselia7/rampardos/roggenrola
 chmod 700 happiny5/staraptor/rattata
 chmod 700 roselia7/rampardos/amoonguss
@@ -425,7 +393,7 @@ chmod u=rw,g=r,o=r happiny5
 
 #############
 
-chmod 700 roselia7
+chmod 300 roselia7
 chmod 700 zigzagoon3
 
 cp zigzagoon3 roselia7/ninetaleszigzagoon
@@ -438,7 +406,7 @@ chmod 660 zigzagoon3
 #############
 
 chmod 700 kirlia2
-chmod 700 happiny5
+chmod 300 happiny5
 
 ln -s kirlia2 happiny5/caterpiekirlia
 
@@ -447,9 +415,9 @@ chmod u=r,g=,o= kirlia2
 
 #############
 
-chmod 700 roselia7
+chmod 300 roselia7
 chmod 700 zigzagoon3
-chmod 700 roselia7/rampardos
+chmod 300 roselia7/rampardos
 
 cp zigzagoon3 roselia7/rampardos/metangzigzagoon
 
