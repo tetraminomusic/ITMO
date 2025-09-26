@@ -455,8 +455,7 @@ wc -l nidoranF8/mareep nidoranF8/tangela nidoranF8/lampent 2>&1 | tee /tmp/lines
 
 echo "2"
 
-ls roselia7/ | sort -r
-
+ls -p roselia7/ |grep -v / | sort -r
 
 ##
 
