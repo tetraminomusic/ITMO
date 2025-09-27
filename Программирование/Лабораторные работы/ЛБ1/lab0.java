@@ -1,5 +1,4 @@
 
-import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Random;
 import static java.lang.Math.*;
@@ -9,13 +8,13 @@ public class lab0 {
     // 1 функция
 
     public static float frst_func(float x1) {
-        return (float) pow((pow(exp(1) , 2*(3-x1))) , (0.5) / (1 - atan(1 / (pow(exp(1) , (float) Math.abs(x1))))));
+        return (float) pow((pow(exp(1) , 2*(3-x1))) , (0.5) / (1 - atan(1 / (pow(exp(1) , (float) abs(x1))))));
     }
 
     // 2 функция
 
     public static float scnd_func(float x1) {
-        return (float) Math.log((float) pow(exp(1) , asin(sin(x1))));
+        return (float) log((float) pow(exp(1) , asin(sin(x1))));
     }
 
 
@@ -23,22 +22,21 @@ public class lab0 {
     // 3 функция
 
     public static float thrd_func(float x1) {
-        return (float) pow(((double) 2/3) * (1 - (float) asin(sin(x1))) , 2*(tan((float) Math.log((float) cos(x1) * (float) cos(x1))) + 1));
+        return (float) pow(((double) 2/3) * (1 - (float) asin(sin(x1))) , 2*(tan((float) log((float) cos(x1) * (float) cos(x1))) + 1));
     }
 
     // функция округления
 
     public static float ceiling (float x1) {
-        return (float) Math.round(x1 * 100.0) / 100;
+        return (float) round(x1 * 100.0) / 100;
     }
 
     // функция вывода массива в понятном виде
 
-    public static String matrix_print (float[][] w) {
-        return Arrays.deepToString(w).replace("], ", "]\n");
-    }
 
     public static void main(String[] args) {
+
+        float max_length = 0;
 
         // создаём 1-ый массив
 
@@ -65,18 +63,25 @@ public class lab0 {
         float[][] w = new float[8][18];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 18; j++) {
-
                 if (w1[i] == 11) {
                     w[i][j] = ceiling(frst_func(x[j]));
+                    max_length = max(max_length, abs(w[i][j]));
                 } else if (w1[i] == 5 || w1[i] == 7 || w1[i] == 13 || w1[i] == 17) {
                     w[i][j] = ceiling(scnd_func(x[j]));
+                    max_length = max(max_length, abs(w[i][j]));
                 } else {
-
                     w[i][j] = ceiling(thrd_func(x[j]));
+                    max_length = max(max_length, abs(w[i][j]));
+
                 }
             }
         }
-        System.out.println(matrix_print(w));
+        int N = String.valueOf(max_length).length();
+        for (float[] row : w) {
+            for (float num : row) {
+                System.out.printf("%" + (N+1) + "s ", num);
+            }
+            System.out.println();
+        }
     }
 }
-
