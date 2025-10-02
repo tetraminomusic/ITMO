@@ -441,7 +441,7 @@ cd lab0
 echo "1"
 #Подсчитать количество строк содержимого файлов: mareep, tangela, lampent, результат записать в файл в директории /tmp, добавить вывод ошибок доступа в стандартный поток вывода
 
-wc -l nidoranF8/mareep nidoranF8/tangela nidoranF8/lampent 2>&1 | 1 >> /tmp/lines_count
+wc -l nidoranF8/mareep nidoranF8/tangela nidoranF8/lampent 2>&1 | 1>>/tmp/lines_count
 
 ##
 
@@ -531,7 +531,7 @@ echo "10"
 
 #Подсчитать количество символов содержимого файла horsea0, результат дописать в тот-же файл, подавить вывод ошибок доступа
 
-wc -m horsea0 2>/dev/null | 1 >> /tmp/n_symbols
+wc -m horsea0 2>/dev/null | 1>>/tmp/n_symbols
 
 ##
 
@@ -634,7 +634,7 @@ chmod 300 roselia7/rampardos
 
 rm roselia7/rampardos/amoongusshorsea
 rm roselia7/rampardos/roggenrolazigzagoon
-rm -r roselia7/rampardos/roselia7 #надо задать вопрос по поводу удаления этой директории!!
+rm -r roselia7/rampardos/roselia7
 
 chmod u=rwx,g=rx,o=wx roselia7/rampardos
 chmod u=rw,g=rw,o=r roselia7
