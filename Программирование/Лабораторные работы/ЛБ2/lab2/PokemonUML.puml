@@ -1,0 +1,107 @@
+@startuml
+class mypokemons.Poliwhirl {
+}
+class mymoves.SampleMove {
+# String describe()
+}
+
+class Program {
++ {static} void main(String[])
+}
+
+class mymoves.politoed.Blizzard {
+# void applyOppEffects(Pokemon)
+# String describe()
+}
+
+class mymoves.virizion.Energy_Ball {
+# void applyOppEffects(Pokemon)
+# String describe()
+}
+
+class mymoves.cranidos.Stone_Edge {
+# double calcCriticalHit(Pokemon,Pokemon)
+# String describe()
+}
+
+class mymoves.virizion.Close_Combat {
+# void applySelfEffects(Pokemon)
+# String describe()
+}
+
+class mymoves.poliwag.Hypnosis {
+# void applyOppEffects(Pokemon)
+# String describe()
+}
+
+class mypokemons.Poliwag {
+}
+class mymoves.cranidos.Rest {
+# void applySelfEffects(Pokemon)
+# String describe()
+}
+
+class mymoves.poliwhirl.Bubble {
+# void applyOppEffects(Pokemon)
+# String describe()
+}
+
+class mymoves.rampardos.Focus_Blast {
+# void applyOppEffects(Pokemon)
+# String describe()
+}
+
+class mymoves.cranidos.Sword_Dance {
+# void applySelfEffects(Pokemon)
+# String describe()
+}
+
+class mypokemons.Cranidos {
+}
+class mypokemons.Virizion {
+}
+class mypokemons.Rampardos {
+}
+class mymoves.poliwag.Swagger {
+# void applyOppEffects(Pokemon)
+# void applySelfEffects(Pokemon)
+# String describe()
+}
+
+class mymoves.virizion.Take_Down {
+# void applySelfDamage(Pokemon,double)
+# String describe()
+}
+
+class mymoves.virizion.X_Scissor {
+# String describe()
+}
+
+class mypokemons.Politoed {
+}
+
+
+mypokemons.Poliwag <|-- mypokemons.Poliwhirl
+ru.ifmo.se.pokemon.PhysicalMove <|-- mymoves.SampleMove
+ru.ifmo.se.pokemon.DamageMove <|-- ru.ifmo.se.pokemon.PhysicalMove
+ru.ifmo.se.pokemon.Move <|-- ru.ifmo.se.pokemon.StatusMove
+ru.ifmo.se.pokemon.Move <|-- ru.ifmo.se.pokemon.DamageMove
+ru.ifmo.se.pokemon.DamageMove <|-- ru.ifmo.se.pokemon.SpecialMove
+ru.ifmo.se.pokemon.SpecialMove <|-- mymoves.politoed.Blizzard
+ru.ifmo.se.pokemon.SpecialMove <|-- mymoves.virizion.Energy_Ball
+ru.ifmo.se.pokemon.PhysicalMove <|-- mymoves.cranidos.Stone_Edge
+ru.ifmo.se.pokemon.PhysicalMove <|-- mymoves.virizion.Close_Combat
+ru.ifmo.se.pokemon.StatusMove <|-- mymoves.poliwag.Hypnosis
+ru.ifmo.se.pokemon.Pokemon <|-- mypokemons.Poliwag
+ru.ifmo.se.pokemon.StatusMove <|-- mymoves.cranidos.Rest
+ru.ifmo.se.pokemon.SpecialMove <|-- mymoves.poliwhirl.Bubble
+ru.ifmo.se.pokemon.SpecialMove <|-- mymoves.rampardos.Focus_Blast
+ru.ifmo.se.pokemon.StatusMove <|-- mymoves.cranidos.Sword_Dance
+ru.ifmo.se.pokemon.Pokemon <|-- mypokemons.Cranidos
+ru.ifmo.se.pokemon.Pokemon <|-- mypokemons.Virizion
+mypokemons.Cranidos <|-- mypokemons.Rampardos
+ru.ifmo.se.pokemon.StatusMove <|-- mymoves.poliwag.Swagger
+ru.ifmo.se.pokemon.PhysicalMove <|-- mymoves.virizion.Take_Down
+ru.ifmo.se.pokemon.SpecialMove <|-- mymoves.virizion.X_Scissor
+mypokemons.Poliwhirl <|-- mypokemons.Politoed
+@enduml
