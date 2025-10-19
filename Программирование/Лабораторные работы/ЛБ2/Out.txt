@@ -1,0 +1,161 @@
+Poliwag Solid Snake из команды зеленых вступает в бой!
+Politoed Revolver Ocelot из команды черных вступает в бой!
+Poliwag Solid Snake использует Hypnosis. 
+Politoed Revolver Ocelot засыпает
+
+Politoed Revolver Ocelot использует Swagger. 
+
+Poliwag Solid Snake использует Hypnosis. 
+
+
+Poliwag Solid Snake растерянно попадает по себе. 
+Poliwag Solid Snake теряет 14 здоровья.
+
+
+Poliwag Solid Snake использует Swagger. 
+
+Politoed Revolver Ocelot использует Blizzard. 
+Poliwag Solid Snake теряет 13 здоровья.
+
+Poliwag Solid Snake использует Swagger. 
+
+Politoed Revolver Ocelot использует Blizzard. 
+Poliwag Solid Snake теряет 10 здоровья.
+
+Poliwag Solid Snake использует Hypnosis. 
+Politoed Revolver Ocelot засыпает
+
+Politoed Revolver Ocelot использует Blizzard. 
+Poliwag Solid Snake теряет 14 здоровья.
+
+Poliwag Solid Snake использует Hypnosis. 
+
+
+Poliwag Solid Snake использует Hypnosis. 
+
+
+Poliwag Solid Snake использует Hypnosis. 
+Politoed Revolver Ocelot засыпает
+
+Politoed Revolver Ocelot использует Swagger. 
+
+Poliwag Solid Snake использует Swagger. 
+
+
+Poliwag Solid Snake использует Swagger. 
+
+Politoed Revolver Ocelot растерянно попадает по себе. 
+Politoed Revolver Ocelot теряет 17 здоровья.
+
+Poliwag Solid Snake использует Hypnosis. 
+Politoed Revolver Ocelot засыпает
+
+Politoed Revolver Ocelot использует Bubble. 
+Poliwag Solid Snake теряет 5 здоровья.
+Poliwag Solid Snake уменьшает скорость.
+
+Poliwag Solid Snake растерянно попадает по себе. 
+Poliwag Solid Snake теряет 38 здоровья.
+
+
+Poliwag Solid Snake растерянно попадает по себе. 
+Poliwag Solid Snake теряет 28 здоровья.
+Poliwag Solid Snake теряет сознание.
+Rampardos Otacon из команды зеленых вступает в бой!
+Rampardos Otacon промахивается
+
+
+Rampardos Otacon промахивается
+
+Politoed Revolver Ocelot растерянно попадает по себе. 
+Politoed Revolver Ocelot теряет 17 здоровья.
+
+Rampardos Otacon промахивается
+
+Politoed Revolver Ocelot использует Hypnosis. 
+Rampardos Otacon засыпает
+
+Rampardos Otacon промахивается
+
+Politoed Revolver Ocelot использует Swagger. 
+
+Rampardos Otacon промахивается
+
+Politoed Revolver Ocelot растерянно попадает по себе. 
+Politoed Revolver Ocelot теряет 14 здоровья.
+
+Rampardos Otacon растерянно попадает по себе. 
+Rampardos Otacon теряет 37 здоровья.
+
+Politoed Revolver Ocelot растерянно попадает по себе. 
+Politoed Revolver Ocelot теряет 15 здоровья.
+
+Rampardos Otacon промахивается
+
+Politoed Revolver Ocelot использует Hypnosis. 
+Rampardos Otacon засыпает
+
+Politoed Revolver Ocelot использует Hypnosis. 
+
+
+Rampardos Otacon промахивается
+
+Politoed Revolver Ocelot использует Swagger. 
+
+Rampardos Otacon использует Focus Blast. 
+Politoed Revolver Ocelot теряет 24 здоровья.
+
+Politoed Revolver Ocelot использует Bubble. 
+Rampardos Otacon теряет 20 здоровья.
+
+Rampardos Otacon промахивается
+
+Politoed Revolver Ocelot использует Hypnosis. 
+Rampardos Otacon засыпает
+
+Rampardos Otacon промахивается
+
+Politoed Revolver Ocelot использует Bubble. 
+Rampardos Otacon теряет 18 здоровья.
+
+Rampardos Otacon использует Focus Blast. 
+Politoed Revolver Ocelot теряет 36 здоровья.
+Politoed Revolver Ocelot теряет сознание.
+Cranidos Liquid Snake из команды черных вступает в бой!
+Rampardos Otacon использует Stone Edge. 
+Cranidos Liquid Snake теряет 13 здоровья.
+
+Cranidos Liquid Snake промахивается
+
+Rampardos Otacon использует Stone Edge. 
+Cranidos Liquid Snake теряет 13 здоровья.
+
+Cranidos Liquid Snake промахивается
+
+Rampardos Otacon использует Focus Blast. 
+Cranidos Liquid Snake теряет 41 здоровья.
+
+Cranidos Liquid Snake промахивается
+
+Rampardos Otacon растерянно попадает по себе. 
+Rampardos Otacon теряет 49 здоровья.
+
+Cranidos Liquid Snake использует Stone Edge. 
+Rampardos Otacon теряет 2 здоровья.
+
+Rampardos Otacon растерянно попадает по себе. 
+Rampardos Otacon теряет 72 здоровья.
+Rampardos Otacon теряет сознание.
+Virizion Maryl из команды зеленых вступает в бой!
+Virizion Maryl использует Energy Ball. 
+Cranidos Liquid Snake теряет 207 здоровья.
+Cranidos Liquid Snake уменьшает специальную защиту.
+Cranidos Liquid Snake теряет сознание.
+Poliwhirl Psycho Mantis из команды черных вступает в бой!
+Virizion Maryl использует Energy Ball. 
+Poliwhirl Psycho Mantis теряет 133 здоровья.
+Poliwhirl Psycho Mantis теряет сознание.
+В команде черных не осталось покемонов.
+Команда зеленых побеждает в этом бою!
+
+Process finished with exit code 0
