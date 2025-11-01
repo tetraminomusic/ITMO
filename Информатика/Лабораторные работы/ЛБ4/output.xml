@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schedule>
+	<global>
+		<even_week>false</even_week>
+		<group_name>P3132</group_name>
+		<date>Tuesday, 28 Oct 2025 UTC +03:00</date>
+		<my_isu>502873</my_isu>
+		<my_varient>85</my_varient>
+		<my_name>Малых Кирилл Романович</my_name>
+	</global>
+	<class_1>
+		<title>Алгебра и алгоритмы (Базовый уровень)</title>
+		<class_format>Очный</class_format>
+		<type_title>Лекция</type_title>
+		<campus_address>Кронверкский пр., д.49, лит.А</campus_address>
+		<from_time>9:50</from_time>
+		<to_time>11:20</to_time>
+		<auditory_name>ауд. 1506</auditory_name>
+		<teacher_name>Кольцова Татьяна Борисовна</teacher_name>
+	</class_1>
+	<class_2>
+		<title>Алгебра и алгоритмы (Базовый уровень)</title>
+		<class_format>Очный</class_format>
+		<type_title>Практика</type_title>
+		<campus_address>Кронверкский пр., д.49, лит.А</campus_address>
+		<from_time>11:30</from_time>
+		<to_time>13:00</to_time>
+		<auditory_name>ауд. 2306/1</auditory_name>
+		<teacher_name>Митина Татьяна Евгеньевна</teacher_name>
+	</class_2>
+	<class_3>
+		<title>Математический анализ (Базовый уровень)</title>
+		<class_format>Очный</class_format>
+		<type_title>Лекция</type_title>
+		<campus_address>Кронверкский пр., д.49, лит.А</campus_address>
+		<from_time>13:30</from_time>
+		<to_time>15:00</to_time>
+		<auditory_name>ауд. 1506</auditory_name>
+		<teacher_name>Кольцова Татьяна Борисовна</teacher_name>
+	</class_3>
+	<class_4>
+		<title>Математический анализ (Базовый уровень)</title>
+		<class_format>Очный</class_format>
+		<type_title>Практика</type_title>
+		<campus_address>Кронверкский пр., д.49, лит.А</campus_address>
+		<from_time>15:30</from_time>
+		<to_time>17:00</to_time>
+		<auditory_name>ауд. 2306/2</auditory_name>
+		<teacher_name>Кочевадов Виталий Алексеевич</teacher_name>
+	</class_4>
+</schedule>
