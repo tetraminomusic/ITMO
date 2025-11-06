@@ -21,7 +21,7 @@ XML_ESCAPED_APOSTROPHE = '&apos;'
 
 
 def escape_xml(text):
-    """Экранирование специальных символов для XML"""
+    #Экранирование специальных символов для XML
     return str(text)\
             .replace(XML_AMPERSAND, XML_ESCAPED_AMPERSAND)\
             .replace(XML_LESS_THAN, XML_ESCAPED_LESS_THAN)\
@@ -51,7 +51,7 @@ def generating_xml(result):
         if len(section_items) == 0: #пропускаем пустые секции
             continue
         
-        lines.append(f'\t<{section_name}>')
+        lines.append(f'\t{XML_START_TAG_OPEN}{section_name}{XML_START_TAG_CLOSE}')
         for key, value in section_items.items():
             escaped_value = escape_xml(value)
             lines.append(f'\t\t{XML_START_TAG_OPEN}{key}{XML_START_TAG_CLOSE}{escaped_value}{XML_END_TAG_OPEN}{key}{XML_END_TAG_CLOSE}')
@@ -61,7 +61,7 @@ def generating_xml(result):
     return "\n".join(lines)
 
 def main():
-    s = "{'global': {'even_week': 'false', 'group_name': 'P3132', 'date': 'Tuesday, 28 Oct 2025 UTC +03:00', 'my_isu': '502873', 'my_varient': '85', 'my_name': 'Малых Кирилл Романович'}, 'class_1': {'title': 'Алгебра и алгоритмы (Базовый уровень)', 'class_format': 'Очный', 'type_title': 'Лекция', 'campus_address': 'Кронверкский пр., д.49, лит.А', 'from_time': '9:50', 'to_time': '11:20', 'auditory_name': 'ауд. 1506', 'teacher_name': 'Кольцова Татьяна Борисовна'}, 'class_2': {'title': 'Алгебра и алгоритмы (Базовый уровень)', 'class_format': 'Очный', 'type_title': 'Практика', 'campus_address': 'Кронверкский пр., д.49, лит.А', 'from_time': '11:30', 'to_time': '13:00', 'auditory_name': 'ауд. 2306/1', 'teacher_name': 'Митина Татьяна Евгеньевна'}, 'class_3': {'title': 'Математический анализ (Базовый уровень)', 'class_format': 'Очный', 'type_title': 'Лекция', 'campus_address': 'Кронверкский пр., д.49, лит.А', 'from_time': '13:30', 'to_time': '15:00', 'auditory_name': 'ауд. 1506', 'teacher_name': 'Кольцова Татьяна Борисовна'}, 'class_4': {'title': 'Математический анализ (Базовый уровень)', 'class_format': 'Очный', 'type_title': 'Практика', 'campus_address': 'Кронверкский пр., д.49, лит.А', 'from_time': '15:30', 'to_time': '17:00', 'auditory_name': 'ауд. 2306/2', 'teacher_name': 'Кочевадов Виталий Алексеевич'}}"
+    s = open("C:\\Users\\user\\Desktop\\итмо\\Информатика\\Лабораторные работы\\ЛБ4\\dict.txt", encoding="utf-8").read()
     xml_output = generating_xml(eval(s))
-    print(xml_output)
+    f = open("C:\\Users\\user\\Desktop\\итмо\\Информатика\\Лабораторные работы\\ЛБ4\\output.xml", "w", encoding="utf-8").write(xml_output)
 main()

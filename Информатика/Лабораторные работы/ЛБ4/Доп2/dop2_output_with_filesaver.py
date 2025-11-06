@@ -17,7 +17,7 @@ def generating_ron_simple(data):
     else:
         processed_data = {k: convert_value(v) for k, v in data.items()}
     
-    # Конвертируем в JSON
+    # Конвертация в json
     json_str = json.dumps(processed_data, ensure_ascii=False, indent=2)
     
     # Заменяем только внешние скобки
@@ -25,7 +25,7 @@ def generating_ron_simple(data):
         return RON_OBJECT_OPEN + json_str[1:-1] + RON_OBJECT_CLOSE
     return json_str
 
-def convert_value(value):
+def convert_value(value): #здесь работаем только с числами
     if isinstance(value, str):
         try:
             return int(value)

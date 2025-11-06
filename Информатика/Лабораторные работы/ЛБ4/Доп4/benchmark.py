@@ -10,15 +10,15 @@ WITH_LIB = "C:\\Users\\user\\Desktop\\итмо\\Информатика\\Лабо
 def benchmark(file_path):
     # Перенаправляем stdout в буфер
     original_stdout = sys.stdout
-    sys.stdout = StringIO()
+    sys.stdout = StringIO() #создаём виртуальной консоли в озу
     
     start_time = time.time()
     for i in range(100):
         # Загружаем и выполняем модуль каждый раз
-        spec = importlib.util.spec_from_file_location("test", file_path)
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
-        module.main()
+        spec = importlib.util.spec_from_file_location("test", file_path) #спецификация модуля из файла, чтобы консоль понимала, как загрузить модуль
+        module = importlib.util.module_from_spec(spec) # создаёт пустой объект модуля на основе спецификации (оболочка)
+        spec.loader.exec_module(module) # выполняется код в контексте созданного объекта модуля
+        module.main() # вызов функции
     
     total_time = time.time() - start_time
     
@@ -28,9 +28,8 @@ def benchmark(file_path):
     print(total_time, "seconds")
     return total_time
 
-if __name__ == "__main__":
-    print("nolib.py")
-    time1 = benchmark(NO_LIB)
+print("nolib.py")
+time1 = benchmark(NO_LIB)
     
-    print("withlib.py")
-    time2 = benchmark(WITH_LIB)
+print("withlib.py")
+time2 = benchmark(WITH_LIB)

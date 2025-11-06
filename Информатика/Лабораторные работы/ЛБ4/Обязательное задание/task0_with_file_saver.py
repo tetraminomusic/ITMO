@@ -65,25 +65,31 @@ def lex_for_ini(s):
     tokens = []
     line_counter = 1
     while len(s) != 0:
+
+        #Рассматриваем комментарии
         comment, s = lex_comment(s)
         if comment != None:
             tokens.append(("COMMENT",comment))
             continue
 
+        #Рассматриваем пробелы
         whitespace, s = lex_whitespace(s)
         if whitespace != None:
             continue
 
+        #подсчёт количества новых строк для нахождения ошибок
         newline, s = lex_new_line(s)
         if newline != None:
             line_counter+=1
             continue
 
+        #Рассматрием секции
         section_name, s = lex_section_name(s)
         if section_name != None:
             tokens.append(("SECTIONS", section_name))
             continue
 
+        #Рассматрием ключ - значения
         key, s = lex_key(s)
         if key != None:
             value, s = lex_value(s)
@@ -93,7 +99,7 @@ def lex_for_ini(s):
     
     return tokens
 
-def consolidation(tokens): # производит десереализацию
+def consolidation(tokens): # производит десереализацию и преобразует в питоновский словарь
     result = {}
     current_section = "global"
     result[current_section] = {}
@@ -105,14 +111,11 @@ def consolidation(tokens): # производит десереализацию
                 result[current_section] = {}
         elif token[0] == "KEY_VALUE":
             key, value = token[1], token[2]
-            
-            ron_value = value
-            result[current_section][key] = ron_value
+            result[current_section][key] = value
     return result
 
 
 def main():
-
     s = open("C:\\Users\\user\\Desktop\\итмо\\Информатика\\Лабораторные работы\\ЛБ4\\input.ini", encoding="utf-8").read()
     tokens = lex_for_ini(s)
     result = consolidation(tokens)

@@ -12,7 +12,7 @@ RON_BOOLEAN_FALSE = "false"
 def generating_ron(result):
     lines = []
     lines.append(RON_OBJECT_OPEN) 
-    if "global" in result and len(result["global"]) > 0:
+    if "global" in result and len(result["global"]) > 0: #работаем со парами внутри глобальной секции
         for value_name in result["global"]:
             value = result["global"][value_name]
             lines.append(f"\t{value_name}{RON_COLON} {value}{RON_COMMA}")
@@ -20,27 +20,27 @@ def generating_ron(result):
             lines.append("")
     
     for section_name in result:
-        if section_name == "global":
+        if section_name == "global": #пропускаем глобальную секцию
             continue
             
         section_items = result[section_name]
-        if len(section_items) == 0:
+        if len(section_items) == 0: #скипаем пустые секции
             continue
         
-        lines.append(f"\t{section_name}{RON_COLON} {{")
+        lines.append(f"\t{section_name}{RON_COLON} {{") #обработка секций
         for param_name in section_items:
             param_value = section_items[param_name]
             lines.append(f"\t\t{param_name}{RON_COLON} {convert_value_to_ron(param_value)}{RON_COMMA}")
         lines.append("\t}" + RON_COMMA)
         
-        if section_name != list(result.keys())[-1]:
+        if section_name != list(result.keys())[-1]: #если секция не ластовая, то добавляем свободную строку
             lines.append("")
     
     lines.append(RON_OBJECT_CLOSE)
     return "\n".join(lines)
 
 def convert_value_to_ron(value):
-    if value == "":
+    if value == "": #работем с кавычками
         return RON_QUOTE + RON_QUOTE
     
     if value.lower() in (RON_BOOLEAN_TRUE,RON_BOOLEAN_FALSE): #работаем с типами boolean
@@ -55,11 +55,11 @@ def convert_value_to_ron(value):
         return int(value)
     except ValueError:
         pass
-    if ((value[0] == RON_QUOTE and value[-1] == RON_QUOTE) or (value[0] == RON_QUOTE and value[-1] == RON_QUOTE)):
+    if ((value[0] == RON_QUOTE and value[-1] == RON_QUOTE) or (value[0] == RON_QUOTE and value[-1] == RON_QUOTE)): #если значение уже в кавычках
         return value
-    return RON_QUOTE + value + RON_QUOTE
+    return RON_QUOTE + value + RON_QUOTE #добавляем кавычки, если таковы не имеются
 
 def main():
-    s = "{'global': {'even_week': 'false', 'group_name': 'P3132', 'date': 'Tuesday, 28 Oct 2025 UTC +03:00', 'my_isu': '502873', 'my_varient': '85', 'my_name': 'Малых Кирилл Романович'}, 'class_1': {'title': 'Алгебра и алгоритмы (Базовый уровень)', 'class_format': 'Очный', 'type_title': 'Лекция', 'campus_address': 'Кронверкский пр., д.49, лит.А', 'from_time': '9:50', 'to_time': '11:20', 'auditory_name': 'ауд. 1506', 'teacher_name': 'Кольцова Татьяна Борисовна'}, 'class_2': {'title': 'Алгебра и алгоритмы (Базовый уровень)', 'class_format': 'Очный', 'type_title': 'Практика', 'campus_address': 'Кронверкский пр., д.49, лит.А', 'from_time': '11:30', 'to_time': '13:00', 'auditory_name': 'ауд. 2306/1', 'teacher_name': 'Митина Татьяна Евгеньевна'}, 'class_3': {'title': 'Математический анализ (Базовый уровень)', 'class_format': 'Очный', 'type_title': 'Лекция', 'campus_address': 'Кронверкский пр., д.49, лит.А', 'from_time': '13:30', 'to_time': '15:00', 'auditory_name': 'ауд. 1506', 'teacher_name': 'Кольцова Татьяна Борисовна'}, 'class_4': {'title': 'Математический анализ (Базовый уровень)', 'class_format': 'Очный', 'type_title': 'Практика', 'campus_address': 'Кронверкский пр., д.49, лит.А', 'from_time': '15:30', 'to_time': '17:00', 'auditory_name': 'ауд. 2306/2', 'teacher_name': 'Кочевадов Виталий Алексеевич'}}"
-    print(generating_ron(eval(s)))
+    s = open("C:\\Users\\user\\Desktop\\итмо\\Информатика\\Лабораторные работы\\ЛБ4\\dict.txt", encoding="utf-8").read()
+    f = open("C:\\Users\\user\\Desktop\\итмо\\Информатика\\Лабораторные работы\\ЛБ4\\output.ron", "w", encoding="utf-8").write(generating_ron(eval(s)))
 main()
