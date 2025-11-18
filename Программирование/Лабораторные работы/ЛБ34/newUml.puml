@@ -1,0 +1,464 @@
+@startuml
+class mrazi.Shrimp {
+- {static} int shrimpCounter
+}
+
+class muzlo_vidosi.RandomTrack {
+- {static} Random random
+- {static} List<String> MENU
+- {static} List<String> IN_GAME
+- {static} List<String> SETTINGS
+- {static} List<String> EATEN
+- {static} List<String> MOVE
++ {static} String getRandomMove()
++ {static} String getRandomEaten()
++ {static} String getRandomGameTrack()
++ {static} String getRandomMenuTrack()
++ {static} String getRandomSettingsTrack()
+}
+
+
+class oshibki.setup.InvalidGameSpeedException {
+}
+class oshibki.setup.InvalidScoreRangException {
+}
+class menu_ui.GameResultsManager {
+- Music win_background
+- Music lose_background
+- Music lox
++ void showGameResults(Whole_game,GameResult)
+- void showAdditionalStats(Whole_game,GameResult)
++ void stopAllMusic()
+}
+
+
+class footbolchik.Game_Setup {
+- Field field
++ void ResetRound()
+- int SpawnWidth()
++ int SpawnHeight()
+# {static} void RandomBallSetting(Field)
++ void initializeGame(int,int)
+}
+
+
+interface interfaces.randomMove {
+~ {static} Random random
+~ void moveRandomly(int,int)
+}
+
+
+class settings.GameSettingsManager {
+- GameSettings settings
+- Scanner scanner
++ GameSettings getSettings()
++ void updateSettings(GameSettings)
++ void showSettingsMenu()
+- boolean handleSettingsChoice(int)
+- void setShrimpCountInteractive()
+- void setSharkCountInteractive()
+- void setGameSpeedInteractive()
+- void setScoreTargetInteractive()
+- void setFieldSizeInteractive()
+- void setMaxTurnsInteractive()
++ void resetToDefaults()
+- void pressAnyKeyToContinue()
+}
+
+
+interface interfaces.distantCalculate {
+~ int getX()
+~ int getY()
+~ double getDistanceTo(Game_object)
+}
+
+enum message.SettingsMessage {
++  ERROR_NUMBER_INPUT
++  DURAK
+- String message
++ String getMessage()
++ void print()
+}
+
+
+class mrazi.Snail {
+~ Music shout_sound
+- void shout(List<Player>)
++ void moveRandomly(int,int)
+}
+
+
+enum message.MistakesMessage {
++  COUNT_SHRIMP_ZERO
++  COUNT_SHRIMP_OVER
++  COUNT_SHARK_ZERO
++  COUNT_SHARK_OVER
++  COUNT_SPEED_ZERO
++  COUNT_SPEED_OVER
++  COUNT_SCORE_ZERO
++  COUNT_SCORE_OVER
++  COUNT_FIELD_ZERO
++  COUNT_FIELD_OVER
++  FIELD_FAIL_SET
++  FIELD_FAIL_WIDTH
++  FIELD_FAIL_SHARK_GET
++  FIELD_FAIL_SHRIMP_GET
++  MUSIC_FAIL_FILE_NAME
+- String message
++ String getMessage()
++ void print()
+}
+
+
+class footbolchik.Run_Turn {
+- Field field
+- Random random
+- int ScoreRang
+- int maxTurns
+- int currentTurn
+- Music goal
+- Music toys
++ void setMaxTurns(int)
++ int getMaxTurns()
++ int getCurrentTurn()
++ void resetTurns()
+- String getScore()
++ void setScoreRang(int)
++ GameResult playTurn()
+- GameResult handleTimeLimitReached()
+}
+
+
+class oshibki.setup.InvalidFieldSizeException {
+}
+enum message.GameMessage {
++  GAME_START
++  START_ROUND
++  DIVIDER_LINE
++  TURN_MESSAGE_START
++  TURN_MESSAGE_END
++  SCORE_MESSAGE_START
++  SCORE_MESSAGE_SHRIMP_START
++  SCORE_MESSAGE_SHARK_END
++  FUNCHOZA_WITH_BALL_WAS_EATEN
++  FUNCHOZA_WAS_EATEN
++  FUNCHOZA_OR
++  SHRIMP_WINNER
++  GAME_WAS_STOPPED
++  GAME_WAS_ENDED
++  WAS_EATEN
++  SHARK_WINNER
++  SHARK_BALL_OUT_OF_BOUNDS
++  SHARK_BALL_SHTANGA
++  SHARK_PERFECT_HIT
++  SHARK_TRY_HIT
++  NO_WAY_FOR_PASS
++  ALL_TEAM_WAS_EATEN
++  BALL_AGAIN
++  BALL_COLLECTED
++  BALL_LOST
+- String message
++ String getMessage()
++ void print()
+}
+
+
+class asciiPictures.GameMenuPictures {
+- {static} String FunchozaTxt
+- {static} String SettingsTxt
+- {static} String MenuButtons
++ {static} void printMenuButtons()
++ {static} void printFunchozaTxt()
++ {static} void printSettingsTxt()
+}
+
+
+class menu_ui.StartupAnimation {
+~ IntroHeadersPictures introHeaders
+~ Music intro
++ void showStartupAnimation()
+}
+
+
+class oshibki.setup.IncorrectFileNameException {
+}
+interface interfaces.clearConsoleSpace {
+~ {static} void clearConsole()
+}
+
+class menu_ui.GameMenu {
+- Scanner scanner
+- Whole_game game
+- GameSettings settings
+- Music background_menu
+- Music bayan
+- Music game_sound
+- Music win_background
+- Music lose_background
+- Music lox
++ void showMenu()
+- int getMenuChoice()
+- void handleChoice(int)
+- void showIntroVideo()
+- void startGame()
+- void setupGame()
+- void showGameResults(GameResult)
+- void showAdditionalStats(GameResult)
+- void showSettings()
+- boolean handleSettingsChoice(int)
+- void setShrimpCountInteractive()
+- void setSharkCountInteractive()
+- void setGameSpeedInteractive()
+- void setScoreTargetInteractive()
+- void setFieldSizeInteractive()
+- void exitGame()
+- void pressAnyKeyToContinue()
+}
+
+
+class menu_ui.LoadingScreen {
++ {static} void showLoadingScreen(String,int)
+- {static} void showProgressLoading(String[],int)
+- {static} void showCreativeLoading(String[],int)
+- {static} void sleep(int)
+}
+
+class muzlo_vidosi.VideoPlayer {
++ {static} void playVideo(String,Runnable)
+- {static} File findVideoFile(String)
+- {static} File getJarDirectory()
++ {static} void playVideoFromJar(String,Runnable)
+- {static} File createTempVideoFile(InputStream,String)
+- {static} String getFileName(String)
+- {static} String getFileExtension(String)
++ {static} void playVideoFromFile(String,Runnable)
++ {static} void playVideo(String)
++ {static} boolean isVideoAvailable(String)
++ {static} void debugVideoSearch(String)
+}
+
+class muzlo_vidosi.Music {
+- Mp3_Player mp3Player
+- String nameFile
+- boolean loop
++ void playSound()
+- boolean isResourceAvailable(String)
+- void playAudio(String)
+- void playDefaultAudio()
++ void stopSound()
+}
+
+
+class asciiPictures.IntroHeadersPictures {
+~ int width
+- String[] LARGE_HEADER
+- String[] MEDIUM_HEADER
+- String[] SMALL_HEADER
+- String FUNCHOZA_LARGE_HEADER
+- String FUNCHOZA_SMALL
+- String FUNCHOZA_MEDIUM
++ String[] GetStudioHeader()
++ String GetFunchozaHeader()
+}
+
+
+class oshibki.setup.InvalidSharkCountException {
+}
+class muzlo_vidosi.Mp3_Player {
+- Player player
+- String audioPath
+- boolean isLooping
+- Thread playerThread
+- boolean stopRequested
++ void play()
+- InputStream getAudioStream()
++ void close()
+}
+
+
+class settings.GameSettings {
+- int shrimpCount
+- int sharkCount
+- long gameSpeed
+- int scoreTarget
+- int fieldWidth
+- int fieldHeight
++ {static} GameSettings defaults()
++ void applyToGame(Whole_game)
++ String getSettingsInfo()
++ long gameSpeed()
++ int scoreTarget()
++ int fieldHeight()
++ int sharkCount()
++ int fieldWidth()
++ int shrimpCount()
+}
+
+
+class oshibki.setup.InvalidSrimpCountException {
+}
+enum message.GameResult {
++  CONTINUE
++  ALL_TEAM_EATEN
++  FUNCHOZA_EATEN
++  FUNCHOZA_WITH_BALL_EATEN
++  PLAYER_WITH_BALL_EATEN
++  SHRIMP_TEAM_WON
++  SHARK_TEAM_WON
+- String description
++ String getDescription()
+}
+
+
+class footbolchik.Whole_game {
+- int shrimpCount
+- int sharkCount
+- long gameSpeed
+- boolean gameRunning
+~ Field gameField
+~ Run_Turn gameEngine
+~ Game_Setup gameSetup
++ void setShrimpNumber(int)
++ int getTeamScore()
++ int getSharkScore()
++ int getGameTime()
++ int getShrimpCount()
++ int getSharkCount()
++ long getGameSpeed()
++ void setSharkNumber(int)
++ void resetGameSpeed()
++ void setGameSpeed(long)
++ void backgroundMusicStop()
++ void setScoreRang(int)
++ void resetScoreRang(int)
++ void setFieldSize(int,int)
++ GameResult run()
++ void stopGame()
+}
+
+
+abstract class mrazi.Game_object {
+- int x
+- int y
+# Random random
++ int getX()
++ int getY()
++ int hashCode()
++ String toString()
++ boolean equals(Object)
++ void setX(int)
++ void setY(int)
+}
+
+
+interface interfaces.confidenceCalculate {
+~ {static} double confidence
+~ double getConfidence()
+~ void increaseConfidence(double)
+~ void decreaseConfidence(double)
+}
+
+
+class asciiPictures.LoadingScreenPictures {
+- {static} String lobster
+- {static} String[] coachTips
++ {static} String[] LOADING_FRAMES
++ {static} String[] CREATIVE_LOADING
++ {static} String[] getLoadingFrames()
++ {static} String[] getCreativeLoading()
++ {static} String getCoachTips()
++ {static} String getLobster()
+}
+
+
+abstract class mrazi.Player {
+# double confidence
+# boolean hasBall
+# String name
++ boolean hasBall()
++ void setHasBall(boolean)
++ double getConfidence()
++ void increaseConfidence(double)
++ void decreaseConfidence(double)
++ String changeShrimpCase(String)
++ String getName()
++ Player pass(java.util.List<Player>,double)
++ boolean shoot(int,int)
+}
+
+
+class footbolchik.Field {
+- {static} Field instance
+- int FIELD_WIDTH
+- int FIELD_HEIGHT
+- int GOAL_X
+- int GOAL_Y_LEFT
+# List<Player> teamPlayers
+# List<Shark> sharks
+# Player playerWithBall
+# Snail snail
+- int teamScore
+- int sharkScore
+- int gameTime
+# Random random
++ void SetFieldSize(int,int)
++ {static} Field getInstance()
++ int getFieldWidth()
++ int getFieldHeight()
++ int getGoalX()
++ int getGoalY()
++ List<Player> getTeamPlayers()
++ List<Shark> getSharks()
++ Player getPlayerWithBall()
++ void setPlayerWithBall(Player)
++ int getTeamScore()
++ int getSharkScore()
++ void addTeamScore()
++ void addSharkScore()
++ void setTeamScore(int)
++ void setSharkScore(int)
++ void setGameTime(int)
++ int getGameTime()
++ void incrementGameTime()
+}
+
+
+class oshibki.setup.GameConfigurationException {
++ String getMessage()
+}
+
+class mrazi.Shark {
+- {static} int sharkCounter
+- String name
+- Music shtanga
+- Music mimo
++ String getName()
++ boolean attackPlayer(Player,double)
++ boolean finHit(Player,int,int)
+}
+
+
+class Main {
++ {static} void main(String[])
+}
+
+
+
+mrazi.Player <|-- mrazi.Shrimp
+oshibki.setup.GameConfigurationException <|-- oshibki.setup.InvalidGameSpeedException
+oshibki.setup.GameConfigurationException <|-- oshibki.setup.InvalidScoreRangException
+mrazi.Player <|-- mrazi.Snail
+oshibki.setup.GameConfigurationException <|-- oshibki.setup.InvalidFieldSizeException
+interfaces.clearConsoleSpace <|.. menu_ui.StartupAnimation
+oshibki.setup.GameConfigurationException <|-- oshibki.setup.IncorrectFileNameException
+interfaces.clearConsoleSpace <|.. menu_ui.GameMenu
+interfaces.clearConsoleSpace <|.. menu_ui.LoadingScreen
+oshibki.setup.GameConfigurationException <|-- oshibki.setup.InvalidSharkCountException
+oshibki.setup.GameConfigurationException <|-- oshibki.setup.InvalidSrimpCountException
+mrazi.distantCalculate <|.. mrazi.Game_object
+mrazi.randomMove <|.. mrazi.Game_object
+interfaces.confidenceCalculate <|.. mrazi.Player
+mrazi.Game_object <|-- mrazi.Player
+oshibki.setup.Exception <|-- oshibki.setup.GameConfigurationException
+mrazi.Game_object <|-- mrazi.Shark
+@enduml

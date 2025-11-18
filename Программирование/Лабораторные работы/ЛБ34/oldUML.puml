@@ -1,0 +1,152 @@
+@startuml
+
+class mrazi.Shrimp {
+- {static} int shrimpCounter
+}
+
+class footbolchik.GameSetup {
+- Field field
++ void ResetRound()
+- int SpawnWidth()
+- int SpawnHeight()
++ void initializeGame(int,int)
+}
+
+abstract class mrazi.Player {
+# double confidence
+# boolean hasBall
+# String name
++ boolean hasBall()
++ void setHasBall(boolean)
++ double getConfidence()
++ void increaseConfidence(double)
++ void decreaseConfidence(double)
++ String getName()
++ Player pass(java.util.List<Player>,double)
++ boolean shoot(int,int)
+}
+
+class footbolchik.RunTurn {
+- Field field
+- Random random
+~ Music trap
+~ Music goal
+~ Music lox
++ void playTurn()
+}
+
+class muzlo.Mp3Player {
+- String filename
+- Player player
+- Thread playerThread
+- boolean loop
++ void play()
++ void close()
+}
+
+class muzlo.Music {
+- {static} Mp3Player goalMp3Player
+- {static} Mp3Player backgroundMp3Player
+- String nameFile
+- boolean loop
++ Mp3Player getGoalMp3Player()
++ Mp3Player getBackgroundMp3Player()
++ void playSound()
++ void stopSound()
++ {static} void stopAllMusic()
+}
+
+class footbolchik.Field {
+- {static} Field instance
+- int FIELD_WIDTH
+- int FIELD_HEIGHT
+- int GOAL_X
+- int GOAL_Y_LEFT
+# List<Player> teamPlayers
+# List<Shark> sharks
+# Player playerWithBall
+# Snail snail
+- int teamScore
+- int sharkScore
+- int gameTime
+# Random random
++ {static} Field getInstance()
++ int getFieldWidth()
++ int getFieldHeight()
++ int getGoalX()
++ int getGoalY()
++ List<Player> getTeamPlayers()
++ List<Shark> getSharks()
++ Player getPlayerWithBall()
++ void setPlayerWithBall(Player)
++ int getTeamScore()
++ int getSharkScore()
++ void addTeamScore()
++ void addSharkScore()
++ void setTeamScore(int)
++ void setSharkScore(int)
++ void setGameTime(int)
++ int getGameTime()
++ void incrementGameTime()
+}
+
+abstract class mrazi.GameObject {
+# int x
+# int y
+# Random random
++ int getX()
++ int getY()
++ void setX(int)
++ void setY(int)
++ double getDistanceTo(GameObject)
++ void moveRandomly(int,int)
+}
+
+class mrazi.Shark {
+- {static} int sharkCounter
+- String name
++ String getName()
++ boolean attackPlayer(Player,double)
++ boolean finHit(Player,int,int)
+}
+
+class Main {
++ {static} void main(String[])
+}
+
+class mrazi.Snail {
++ void shout(List<Player>)
++ void moveRandomly(int,int)
+}
+
+class footbolchik.WholeGame {
+- int Shrimp_count
+- int Shark_count
+- long GameSpeed
++ void setShrimpNumber(int)
++ void setSharkNumber(int)
++ void resetGameSpeed()
++ void setGameSpeed(long)
++ void Run()
+}
+
+' Наследование
+mrazi.Player <|-- mrazi.Shrimp
+mrazi.GameObject <|-- mrazi.Player
+mrazi.GameObject <|-- mrazi.Shark
+mrazi.Player <|-- mrazi.Snail
+
+' Композиции
+footbolchik.RunTurn *-- footbolchik.Field
+footbolchik.WholeGame *-- footbolchik.RunTurn
+footbolchik.GameSetup *-- footbolchik.Field
+Main *-- footbolchik.WholeGame
+WholeGame *-- footbolchik.GameSetup
+
+' Агрегации
+footbolchik.RunTurn o-- muzlo.Music
+footbolchik.GameSetup o-- Shrimp
+footbolchik.GameSetup o-- Snail
+footbolchik.GameSetup o-- Shark
+
+@enduml
