@@ -1,0 +1,561 @@
+\documentclass[onecolumn, 14pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ragged2e}
+\usepackage{amsmath, amssymb}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\geometry{left=5mm, top=20mm, right=5mm, bottom=10mm, nofoot}
+
+
+\begin{document}
+
+\setcounter{page}{29}
+\pagestyle{empty}
+
+	\begin{wrapfigure}[0]{r}{0.4\textwidth}
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.5]
+
+			\coordinate (E) at (0,0);
+			\coordinate (C) at (3,6);
+			\coordinate (A) at (6,12);
+			\coordinate (B) at (9,6);
+			\coordinate (D) at (12, 0);
+		
+			\pic[draw=blue!90!black, fill=blue!90!black, angle radius=0.9cm] {angle=B--C--A};
+			\pic[draw=blue!90!black, fill=blue!90!black, angle radius=0.9cm] {angle=A--B--C};
+			\pic[draw=black, fill=black, angle radius=0.9cm] {angle=C--A--B};
+			\pic[draw=yellow, fill=yellow, angle radius=0.9cm] {angle=D--C--B};
+			\pic[draw=yellow, fill=yellow, angle radius=0.9cm] {angle=C--B--E};
+			\pic[draw=red!90!black, fill=red!90!black, angle radius=0.9cm] {angle=B--E--A};
+			\pic[draw=red!90!black, fill=red!90!black, angle radius=0.9cm] {angle=A--D--C};
+			\pic[draw=yellow, fill=none,line width=2.7pt, angle radius=0.9cm] {angle=E--C--D};
+			\pic[draw=yellow, fill=none,line width=2.7pt, angle radius=0.9cm] {angle=C--B--D};
+			
+			\draw[line width=1.2mm, yellow] (0, 0) -- (3, 6);
+			\draw[line width=1.2mm, red!90!black] (3, 6) -- (6, 12);
+			\draw[line width=1.2mm, red!90!black] (6, 12) -- (9, 6);
+			\draw[line width=1.2mm, black] (9, 6) -- (3, 6);
+			\draw[line width=1.2mm, yellow] (9, 6) -- (12, 0);
+			\draw[line width=1.2mm, blue!90!black] (0, 0) -- (9, 6);
+			\draw[line width=1.2mm, blue!90!black] (3, 6) -- (12, 0);
+			
+			\filldraw[black] (6, 12) circle (3.5pt) node[scale=1, anchor=south] {A};
+			\filldraw[black] (3, 6) circle (3.5pt) node[scale=1, anchor=east] {C};
+			\filldraw[black] (0, 0) circle (3.5pt) node[scale=1, anchor=north] {E};
+			\filldraw[black] (9, 6) circle (3.5pt) node[scale=1, anchor=west] {B};
+			\filldraw[black] (12, 0) circle (3.5pt) node[scale=1, anchor=north] {D};
+			
+		\end{tikzpicture}
+	\end{wrapfigure}
+
+\hspace{2em}\begin{minipage}{0.55\textwidth}
+	\centering
+		\large \textbf{КНИГА $I$ ПРЕДЛ. $V$. ТЕОРЕМА }	\\
+		\hfill\thepage
+	\justifying
+	
+	\vspace{2em}
+		\begin{wrapfigure}[2]{l}{0.16\textwidth}
+			\vspace{-1em}
+			\includegraphics[width=0.16\textwidth]{bukviza.png}
+		\end{wrapfigure}
+	\noindent глы \textit{при основании любого равнобедренного треугольника}
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+		    \draw[line width=0.75mm, red!90!black] (0, 0) -- (0.375, 0.7);
+		    \draw[line width=0.75mm, red!90!black] (0.375, 0.7) -- (0.75, 0);
+		    \draw[line width=0.75mm, black!90!black] (0, 0) -- (0.75, 0);
+		    \filldraw[black] (0, 0) circle (1pt) node[scale=0.8, anchor=east] {С};
+		    \filldraw[black] (0.75, 0) circle (1pt) node[scale=0.8, anchor=west] {B};
+		    \filldraw[black] (0.375, 0.7) circle (1pt) node[scale=0.8, anchor=south] {A};
+		\end{tikzpicture}
+	\textit{равны между собой и по продолжении равных сторон
+	углы под основанием будут равны между собой.}
+\end{minipage}
+
+\hspace{2em}\begin{minipage}{0.55\textwidth}
+
+% первые 3 строки с пр	
+
+	\vspace{1.5em}
+	\centering
+
+	Продлим
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, red!90!black] (0, 0) -- (2, 0);
+		
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {A};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {B};
+		\end{tikzpicture}
+	и
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, red!90!black] (0, 0) -- (2, 0);
+		
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {A};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {С};
+		\end{tikzpicture}
+	(пост. $II$),
+	\\возьмём
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, yellow!95!black] (0, 0) -- (2, 0);
+		
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {B};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {D};
+		\end{tikzpicture} 
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, yellow!95!black] (0, 0) -- (2, 0);
+		
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {C};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {E};
+		\end{tikzpicture}
+	(пр. $I$.),\\
+	проведём
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, blue!90!white] (0, 0) -- (2, 0);
+		
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {B};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {E};
+		\end{tikzpicture}
+	и
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, blue!90!white] (0, 0) -- (2, 0);
+		
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {C};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {D};
+		\end{tikzpicture}
+	.\\
+
+%две треугольника
+
+	\vspace{20px}
+	Тогда в
+		\begin{tikzpicture}[every node/.style={font=\sffamily},baseline=(current bounding box.center), xshift=-0.5cm, yshift=0.1cm, scale = 1.2, rotate = 20]
+
+			\coordinate (E) at (0.5,0);
+			\coordinate (A) at (1,0.5);
+			\coordinate (B) at (1.1,-0.26);
+
+			\pic[draw=black, fill=black, angle radius=0.6cm] {angle=E--A--B};
+
+			\draw[line width=0.75mm, yellow!90!black] (0, -0.5) -- (0.5, 0);
+			\draw[line width=0.75mm, red!90!black] (0.5, 0) -- (1, 0.5);
+			\draw[line width=0.75mm, red!90!black] (1, 0.5) -- (1.1, -0.26);
+			\draw[line width=0.75mm, blue!90!white] (0, -0.5) -- (1.1, -0.26);
+
+			\filldraw[black] (0, -0.5) circle (1pt) node[scale=0.6, anchor=north] {E};
+			\filldraw[black] (1, 0.5) circle (1pt) node[scale=0.6, anchor=south] {A};
+			\filldraw[black] (1.1, -0.26) circle (1pt) node[scale=0.6, anchor=west] {B};	
+		\end{tikzpicture}
+	и
+		\begin{tikzpicture}[every node/.style={font=\sffamily},baseline=(current bounding box.center), xshift=-0.5cm, yshift=0.1cm, scale = 1.2, rotate = 160, yscale = -1]
+
+			\coordinate (E) at (0.5,0);
+			\coordinate (A) at (1,0.5);
+			\coordinate (B) at (1.1,-0.26);
+		
+			\pic[draw=black, fill=black, angle radius=0.6cm] {angle=B--A--E};
+		
+			\draw[line width=0.75mm, yellow!90!black] (0, -0.5) -- (0.5, 0);
+			\draw[line width=0.75mm, red!90!black] (0.5, 0) -- (1, 0.5);
+			\draw[line width=0.75mm, red!90!black] (1, 0.5) -- (1.1, -0.26);
+			\draw[line width=0.75mm, blue!90!white] (0, -0.5) -- (1.1, -0.26);
+		
+			\filldraw[black] (0, -0.5) circle (1pt) node[scale=0.6, anchor=north] {E};
+			\filldraw[black] (1, 0.5) circle (1pt) node[scale=0.6, anchor=south] {A};
+			\filldraw[black] (1.1, -0.26) circle (1pt) node[scale=0.6, anchor=east] {D};	
+		\end{tikzpicture}
+	\\
+
+% две прямые красно-жёлтого цвета
+
+	\vspace{7px}
+	получим
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+			\draw[line width=1mm, red!90!black] (0, 0) -- (1, 0);
+			\draw[line width=1mm, yellow!90!white] (1, 0) -- (2, 0);
+		
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {A};
+			\filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {D};
+		\end{tikzpicture}
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+			\draw[line width=1mm, red!90!black] (0, 0) -- (1, 0);
+			\draw[line width=1mm, yellow!90!white] (1, 0) -- (2, 0);
+		
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {A};
+			\filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {E};
+		\end{tikzpicture}
+	(конст.),\\
+
+% чёрный уголок
+
+	\vspace{7px}
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.25, baseline=-0.2cm]
+
+			\coordinate (C) at (0,1);
+			\coordinate (A) at (-1.8,-2);
+			\coordinate (B) at (1.8,-2);
+		
+			\pic[draw=black, fill=black, angle radius=0.825cm] {angle=A--C--B};
+		
+			\filldraw[black] (0, 1) circle (0pt) node[scale=0.6, anchor=south] {A};
+			\filldraw[black] (-1.8, -2) circle (0pt) node[scale=0.6, anchor = east] {C};
+			\filldraw[black] (1.8, -2) circle (0pt) node[scale=0.6, anchor=west] {B};
+		\end{tikzpicture}
+	общий обоим,\\
+
+%две красные прямые
+
+	\vspace{7px}
+	и
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, red!90!black] (0, 0) -- (2, 0);
+		
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {A};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {B};
+		\end{tikzpicture} 
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, red!90!black] (0, 0) -- (2, 0);
+		
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {A};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {С};
+		\end{tikzpicture}
+	(гип.)\\
+
+%два уголка с украиной
+
+	\vspace{7px}
+	\textbf{$\therefore$}
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=0.15cm]
+
+			\coordinate (C) at (0,0);
+			\coordinate (A) at (1,2);
+			\coordinate (B) at (3,-1);
+			\coordinate (H) at (3,0);
+
+			\pic[draw=blue!90!black, fill=blue!90!black, angle radius=0.9cm] {angle=B--C--A};
+			\pic[draw=yellow, fill=yellow, angle radius=0.9cm] {angle=B--C--H};
+
+			\filldraw[black] (0.8, 2.4) circle (0pt) node[scale=0.7, anchor=south] {A};
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.7, anchor = east] {C};
+			\filldraw[black] (3, -1) circle (0pt) node[scale=0.7, anchor=west] {D};
+		\end{tikzpicture}
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=0.15cm]
+
+			\coordinate (C) at (3,0);
+			\coordinate (A) at (2,2);
+			\coordinate (B) at (0,-1);
+			\coordinate (H) at (0,0);
+
+			\pic[draw=blue!90!black, fill=blue!90!black, angle radius=0.9cm] {angle=A--C--B};
+
+			\pic[draw=yellow, fill=yellow, angle radius=0.9cm] {angle=H--C--B};
+
+			\filldraw[black] (1, 2.4) circle (0pt) node[scale=0.7, anchor=south] {A};
+			\filldraw[black] (3, 0) circle (0pt) node[scale=0.7, anchor = west] {B};
+			\filldraw[black] (0, -1) circle (0pt) node[scale=0.7, anchor=east] {E};
+		\end{tikzpicture}
+	,
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, blue!90!white] (0, 0) -- (2, 0);
+
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {B};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {E};
+		\end{tikzpicture}
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, blue!90!white] (0, 0) -- (2, 0);
+
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {C};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {D};
+		\end{tikzpicture}
+	\\
+
+%строка только с 2-мя красными уголками
+
+	\vspace{7px}
+	и
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=0.33cm, rotate=-10]
+		
+			\coordinate (E) at (0,0);
+			\coordinate (C) at (1,3);
+			\coordinate (B) at (2,2);
+		
+			\pic[draw=red!80!black, fill=red!85!black, angle radius=0.9cm] {angle=B--E--C};
+		
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.7, anchor=north] {E};
+			\filldraw[black] (1, 3) circle (0pt) node[scale=0.7, anchor = south] {C};
+			\filldraw[black] (2.2, 2) circle (0pt) node[scale=0.7, anchor=west] {B};
+		\end{tikzpicture}
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=0.33cm, rotate=76]
+		
+			\coordinate (E) at (0,0);
+			\coordinate (C) at (1,3);
+			\coordinate (B) at (2,2);
+		
+			\pic[draw=red!80!black, fill=red!85!black, angle radius=0.9cm] {angle=B--E--C};
+		
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.7, anchor=north] {D};
+			\filldraw[black] (0.85, 3) circle (0pt) node[scale=0.7, anchor = east] {C};
+			\filldraw[black] (2.2, 2) circle (0pt) node[scale=0.7, anchor=south] {B};
+		\end{tikzpicture}
+	(пр. $I$.4).\\
+
+%строка с 2-мя треугольниками
+
+	\vspace{7px}
+	Так же у
+		 \begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 1.4, baseline = 0.34cm]
+
+		    \draw[line width=0.75mm, blue!90!black] (0, 0) -- (1.1, 0.5);
+		    \draw[line width=0.75mm, yellow!90!black] (0, 0) -- (0.3, 0.5);
+		    \draw[line width=0.75mm, black] (1.1, 0.5) -- (0.3, 0.5);
+		
+		    \filldraw[black] (0, 0) circle (1pt) node[scale=0.65, anchor=east] {E};
+		    \filldraw[black] (1.1, 0.5) circle (1pt) node[scale=0.65, anchor=west] {B};
+		    \filldraw[black] (0.3, 0.5) circle (1pt) node[scale=0.65, anchor=south] {C};
+
+		\end{tikzpicture}
+	и
+		 \begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 1.4, baseline = 0.34cm, yscale = -1, rotate=180]
+
+		    \draw[line width=0.75mm, blue!90!black] (0, 0) -- (1.1, 0.5);
+		    \draw[line width=0.75mm, yellow!90!black] (0, 0) -- (0.3, 0.5);
+		    \draw[line width=0.75mm, black] (1.1, 0.5) -- (0.3, 0.5);
+		
+		    \filldraw[black] (0, 0) circle (1pt) node[scale=0.65, anchor=west] {D};
+		    \filldraw[black] (1.1, 0.5) circle (1pt) node[scale=0.65, anchor=east] {C};
+		    \filldraw[black] (0.3, 0.5) circle (1pt) node[scale=0.65, anchor=south] {B};
+
+		\end{tikzpicture}
+
+%строка с 2-мя жёлтыми прямыми
+
+	\vspace{7px}
+	получим
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, yellow!95!black] (0, 0) -- (2, 0);
+
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {B};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {D};
+
+		\end{tikzpicture} 
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, yellow!95!black] (0, 0) -- (2, 0);
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {C};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {E};
+
+		\end{tikzpicture}
+	,
+
+% строка с красными уголками + 2 синие прямые
+	
+	\vspace{7px}
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=0.33cm, rotate=-10]
+
+			\coordinate (E) at (0,0);
+			\coordinate (C) at (1,3);
+			\coordinate (B) at (2,2);
+
+			\pic[draw=red!80!black, fill=red!85!black, angle radius=0.9cm] {angle=B--E--C};
+
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.7, anchor=north] {E};
+			\filldraw[black] (1, 3) circle (0pt) node[scale=0.7, anchor = south] {C};
+			\filldraw[black] (2.2, 2) circle (0pt) node[scale=0.7, anchor=west] {B};
+
+		\end{tikzpicture}
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=0.33cm, rotate=76]
+
+			\coordinate (E) at (0,0);
+			\coordinate (C) at (1,3);
+			\coordinate (B) at (2,2);
+
+			\pic[draw=red!80!black, fill=red!85!black, angle radius=0.9cm] {angle=B--E--C};
+
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.7, anchor=north] {D};
+			\filldraw[black] (0.85, 3) circle (0pt) node[scale=0.7, anchor = east] {C};
+			\filldraw[black] (2.2, 2) circle (0pt) node[scale=0.7, anchor=south] {B};
+
+		\end{tikzpicture}
+	и
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, blue!90!white] (0, 0) -- (2, 0);
+
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {B};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {E};
+
+		\end{tikzpicture}
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}]
+
+		    \draw[line width=1mm, blue!90!white] (0, 0) -- (2, 0);
+
+		    \filldraw[black] (0, 0) circle (0pt) node[scale=0.8, anchor=south] {C};
+		    \filldraw[black] (2, 0) circle (0pt) node[scale=0.8, anchor=south] {D};
+
+		\end{tikzpicture}
+	\\
+
+%предпоследняя строка
+
+	\vspace{7px}
+	\textbf{$\therefore$}
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=-0.4cm, rotate = -31]
+
+			\coordinate (E) at (0,0);
+			\coordinate (C) at (2,0);
+			\coordinate (B) at (2, 1.2);
+			\coordinate (H) at (0.166, -3);
+
+			\pic[draw=yellow, fill=yellow, angle radius=0.9cm] {angle=C--E--B};
+
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.6, anchor=south] {C};
+			\filldraw[black] (2.8, 1.65) circle (0pt) node[scale=0.6, anchor = south] {B};
+			\filldraw[black] (0.166, -3) circle (0pt) node[scale=0.6, anchor = east] {E};
+
+			\pic[draw=yellow, line width=2.7pt, angle radius=0.855cm] {angle=H--E--C};
+
+			\draw[line width=1mm, black] (0.166, 0) -- (0.166, -3);
+		\end{tikzpicture}
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=-0.4cm, rotate = 31, xscale = -1]
+
+			\coordinate (E) at (0,0);
+			\coordinate (C) at (2,0);
+			\coordinate (B) at (2, 1.2);
+			\coordinate (H) at (0.166, -3);
+
+			\pic[draw=yellow, fill=yellow, angle radius=0.9cm] {angle=B--E--C};
+
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.6, anchor=south] {B};
+			\filldraw[black] (2.8, 1.65) circle (0pt) node[scale=0.6, anchor = south] {C};
+			\filldraw[black] (0.166, -3) circle (0pt) node[scale=0.6, anchor = west] {D};
+
+			\pic[draw=yellow, line width=2.7pt, angle radius=0.855cm] {angle=C--E--H};
+
+			\draw[line width=1mm, black] (0.166, 0) -- (0.166, -3);
+		\end{tikzpicture}
+	и \;
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.4, baseline=-8, rotate = -31]
+
+			\coordinate (E) at (0,0);
+			\coordinate (C) at (2,0);
+			\coordinate (B) at (2, 1.2);
+
+			\pic[draw=yellow, fill=yellow, angle radius=1.2cm] {angle=C--E--B};
+
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.6, anchor=south] {C};
+			\filldraw[black] (2.8, 1.65) circle (0pt) node[scale=0.6, anchor = south] {B};
+			\filldraw[black] (3.2, -0.3) circle (0pt) node[scale=0.6, anchor = east] {D};
+		\end{tikzpicture}
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.4, baseline=-8, rotate = 31, xscale = -1]
+
+			\coordinate (E) at (0,0);
+			\coordinate (C) at (2,0);
+			\coordinate (B) at (2, 1.2);
+
+			\pic[draw=yellow, fill=yellow, angle radius=1.2cm] {angle=B--E--C};
+
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.6, anchor=south] {B};
+			\filldraw[black] (2.8, 1.65) circle (0pt) node[scale=0.6, anchor = south] {С};
+			\filldraw[black] (3.2, -0.3) circle (0pt) node[scale=0.6, anchor = east] {E};
+		\end{tikzpicture}
+	(пр. $I$.4),\\
+
+%последняя строка
+
+	\vspace{7px}
+	но
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=0.15cm]
+	
+			\coordinate (C) at (0,0);
+			\coordinate (A) at (1,2);
+			\coordinate (B) at (3,-1);
+			\coordinate (H) at (3,0);
+	
+			\pic[draw=blue!90!black, fill=blue!90!black, angle radius=0.9cm] {angle=B--C--A};
+			\pic[draw=yellow, fill=yellow, angle radius=0.9cm] {angle=B--C--H};
+	
+			\filldraw[black] (0.8, 2.4) circle (0pt) node[scale=0.7, anchor=south] {A};
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.7, anchor = east] {C};
+			\filldraw[black] (3, -1) circle (0pt) node[scale=0.7, anchor=west] {D};
+		\end{tikzpicture}
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=0.15cm]
+
+			\coordinate (C) at (3,0);
+			\coordinate (A) at (2,2);
+			\coordinate (B) at (0,-1);
+			\coordinate (H) at (0,0);
+
+			\pic[draw=blue!90!black, fill=blue!90!black, angle radius=0.9cm] {angle=A--C--B};
+			\pic[draw=yellow, fill=yellow, angle radius=0.9cm] {angle=H--C--B};
+
+			\filldraw[black] (1, 2.4) circle (0pt) node[scale=0.7, anchor=south] {A};
+			\filldraw[black] (3, 0) circle (0pt) node[scale=0.7, anchor = west] {B};
+			\filldraw[black] (0, -1) circle (0pt) node[scale=0.7, anchor=east] {E};
+		\end{tikzpicture}
+	,  \textbf{$\therefore$}
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=0.3cm]
+
+			\coordinate (C) at (0,0);
+			\coordinate (A) at (1,2);
+			\coordinate (B) at (3,-1);
+			\coordinate (H) at (3,0);
+
+			\pic[draw=blue!90!black, fill=blue!90!black, angle radius=0.9cm] {angle=H--C--A};
+
+			\filldraw[black] (0.8, 2.4) circle (0pt) node[scale=0.7, anchor=south] {A};
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.7, anchor = east] {C};
+			\filldraw[black] (3, 0) circle (0pt) node[scale=0.7, anchor=west] {B};
+		\end{tikzpicture}
+	$=$
+		\begin{tikzpicture}[every node/.style={font=\sffamily}, scale = 0.3, baseline=0.3cm]
+
+			\coordinate (C) at (3,0);
+			\coordinate (A) at (2,2);
+			\coordinate (B) at (0,-1);
+			\coordinate (H) at (0,0);
+
+			\pic[draw=blue!90!black, fill=blue!90!black, angle radius=0.9cm] {angle=A--C--H};
+
+			\filldraw[black] (1, 2.4) circle (0pt) node[scale=0.7, anchor=south] {A};
+			\filldraw[black] (3, 0) circle (0pt) node[scale=0.7, anchor = west] {B};
+			\filldraw[black] (0, 0) circle (0pt) node[scale=0.7, anchor=east] {C};
+		\end{tikzpicture}
+	(акс. $III$).\\
+
+%чтд
+	
+	\hfill ч. т. д.
+
+\end{minipage}
+\end{document}
